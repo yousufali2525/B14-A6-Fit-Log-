@@ -8,7 +8,6 @@ export default function WorkoutCard({ workout }: { workout: Workout }) {
       <div className="overflow-hidden">
         <img
           src={workout.image}
-
           alt={workout.name}
           className="h-56 w-full object-cover transition duration-300 group-hover:scale-105"/>
       </div>
@@ -25,7 +24,6 @@ export default function WorkoutCard({ workout }: { workout: Workout }) {
 
           <span>🔥 {workout.caloriesBurned} kcal</span>
           <span>★ {workout.rating}</span>
-          
         </div>
       </div>
     </Link>
