@@ -71,7 +71,6 @@ setToasts([{ id, message }])
     },
     [plan, showToast]
   )
-
   const addToSaved = useCallback((workout: Workout) => {
       if (saved.some((w) => w.id === workout.id)) {
         showToast(`${workout.name} is already saved`)
@@ -82,7 +81,6 @@ setToasts([{ id, message }])
     },
     [saved, showToast]
   )
-
   const removeFromPlan = useCallback(
     (id: number) => {
       setPlan((current) => current.filter((p) => p.workout.id !== id))
