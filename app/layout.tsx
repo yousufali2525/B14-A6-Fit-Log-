@@ -11,20 +11,22 @@ function PageLoader() {
   const [percent, setPercent] = useState(0)
   useEffect(() => {
     if (!loading) return
-    const interval = setInterval(() => {setPercent((prev) => (prev >= 100 ? 100 : prev + 15))}, 120)
-    const timer = setTimeout(() => {setLoading(false) 
-    setPercent(0)}, 1000)
+    const interval = setInterval(() => {
+      setPercent((prev) => (prev >= 100 ? 100 : prev + 15))
+    }, 120)
+    const timer = setTimeout(() => {
+      setLoading(false)
+      setPercent(0)
+    }, 1000)
     return () => {
       clearInterval(interval)
       clearTimeout(timer)
     }
-    
   }, [pathname, searchParams, loading])
   useEffect(() => {
     const handleAnchorClick = (e: MouseEvent) => {
       const target = (e.target as HTMLElement).closest("a")
-      if (
-        target &&target.href &&!target.href.startsWith("mailto:") &&!target.href.startsWith("tel:") &&!target.target &&!e.ctrlKey &&!e.metaKey) {
+      if (target &&target.href &&!target.href.startsWith("mailto:") &&!target.href.startsWith("tel:") &&!target.target &&!e.ctrlKey &&!e.metaKey) {
         const currentUrl = new URL(window.location.href)
         const targetUrl = new URL(target.href)
         if (
@@ -39,7 +41,6 @@ function PageLoader() {
     return () => window.removeEventListener("click", handleAnchorClick)
   }, [])
   if (!loading) return null
-
   return (
     <div className="fixed inset-0 z-[999] flex flex-col items-center justify-center bg-[#0d0e11]/95 backdrop-blur-md transition-all duration-200">
       <div className="absolute h-72 w-72 rounded-full bg-lime-400/10 blur-[120px] pointer-events-none"></div>
@@ -58,21 +59,25 @@ function PageLoader() {
       <div className="mt-7 flex flex-col items-center">
         <div className="flex items-center gap-2">
           <span className="font-display text-xl font-black uppercase tracking-[0.25em] text-white">LOADING <span className="text-lime-400">....</span>
-      </span>
-          <span className="rounded-md bg-lime-400/10 px-2 py-0.5 text-xs font-mono font-bold text-lime-400">{percent}% </span>
+          </span>
+          <span className="rounded-md bg-lime-400/10 px-2 py-0.5 text-xs font-mono font-bold text-lime-400">
+            {percent}%{" "}
+          </span>
         </div>
-        <p className="mt-1 text-[11px] font-bold tracking-[0.2em] uppercase text-gray-400"> Please wait a moment</p>
+        <p className="mt-1 text-[11px] font-bold tracking-[0.2em] uppercase text-gray-400">{" "}Please wait a moment</p>
       </div>
       <div className="mt-5 h-1.5 w-52 overflow-hidden rounded-full bg-white/10 p-[1px]">
         <div
           className="h-full rounded-full bg-gradient-to-r from-lime-500 via-lime-400 to-emerald-300 transition-all duration-120 ease-out shadow-[0_0_12px_#a3e635]"
-          style={{ width: `${percent}%` }}></div>
+          style={{ width: `${percent}%` }}
+        ></div>
       </div>
     </div>
   )
 }
-export default function RootLayout({children,}
-: {
+export default function RootLayout({
+  children,
+}: {
   children: React.ReactNode
 }) {
   return (
