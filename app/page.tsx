@@ -3,20 +3,17 @@ import Footer from "@/components/Footer"
 import LibraryGrid from "@/components/LibraryGrid"
 import type { Workout } from "@/lib/types"
 async function getWorkouts(): Promise<Workout[]> {
-
   const response = await fetch("https://api.abcz.workers.dev/api/fitlog", {cache: "no-store",})
 
   if (!response.ok) {
     throw new Error("Failed to fetch workouts")
   }
-
   return response.json()
 }
 export default async function Home() {
 
   const workouts = await getWorkouts()
   return (
-
     <>
       <Navbar />
       <main className="min-h-screen bg-bg text-white">
@@ -28,7 +25,7 @@ export default async function Home() {
                 <h1 className="font-display text-4xl font-black uppercase leading-tight text-white md:text-5xl lg:text-6xl">TRAIN WITH INTENT.<br />LOG EVERY SET.</h1>
                 <p className="mt-5 max-w-xl text-base leading-relaxed text-gray-400">FitLog is a dark, no-nonsense gym companion: pick a lift, lock it into today&apos;s plan, and watch the week&apos;s work add up.</p>
                 <a
-                
+             
                   href="#library"
                   className="mt-8 inline-flex items-center gap-2 rounded-md bg-accent px-6 py-3 text-sm font-bold uppercase tracking-wide text-black transition hover:bg-accentDark">
                   <span>↓</span>Browse Workouts</a>
