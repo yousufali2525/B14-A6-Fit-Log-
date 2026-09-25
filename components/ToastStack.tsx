@@ -6,7 +6,6 @@ export default function ToastStack() {
   const { toasts, dismissToast } = useStore()
   if (toasts.length === 0) return null
 
-
   return (
     <div className="fixed top-20 right-5 z-50 flex w-full max-w-xs sm:max-w-sm flex-col gap-2 pointer-events-none">
       {toasts.map((toast) => (

@@ -7,7 +7,7 @@ FitLog is a modern fitness workout tracking web application where users can expl
 
 ##  Live Demo
 
-🔗 *Live Website:* (https://fitlog-app-psi.vercel.app/)
+🔗 *Live Website:* (https://b14-a6-fit-log-mu.vercel.app/)
 
 🔗 *GitHub Repository:* https://github.com/yousufali2525/B14-A6-Fit-Log-.git
 
