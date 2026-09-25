@@ -1,7 +1,5 @@
 import Image from "next/image"
 export default function Footer() {
-
-
   return (
     <footer className="border-t border-white/10 bg-[#101114]">
       <div className="mx-auto flex max-w-7xl flex-col items-center justify-between gap-4 px-5 py-8 sm:flex-row">
